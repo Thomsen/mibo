@@ -1,0 +1,6 @@
+<%= form_for @user, url: {controller: "user", action: "create"}, html: {class: "user_register"} do |user| %>
+
+<%= user.text_field :username %>
+
+
+<% end %>

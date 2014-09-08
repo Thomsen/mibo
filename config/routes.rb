@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  get 'user/create'
+  get 'user/profile'
+  get 'user/modify'
+
   get 'welcome/register'
 
   get 'welcome/login'
