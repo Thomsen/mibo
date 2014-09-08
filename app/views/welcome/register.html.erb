@@ -1,6 +1,5 @@
 
-<%= form_for :post, url: users_path do |user| %>
-
+<%= form_tag %>
 
 <%= check_box_tag(:male) %>
 <%= label_tag(:male, "男") %>
@@ -29,10 +28,3 @@
 <%= number_field(:product, :price, in: 1.0..2.0, step: 0.5) %>
 <%= range_field(:proudct, :discount, in: 1..100) %>
 
-
-
-<p>
-  <%= user.submit %>
-</p>
-
-<% end %>

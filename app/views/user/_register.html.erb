@@ -1,6 +1,37 @@
-<%= form_for @user, url: {controller: "user", action: "create"}, html: {class: "user_register"} do |user| %>
+<%= form_for :user, url: user_create_path do |f| %>
 
-<%= user.text_field :username %>
+<% if @user.errors.any? %>
 
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved: </h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li> <%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+
+<% end %>
+
+<p>
+  <%= f.label :loginname %>
+  <%= f.text_field :loginname %>
+</p>
+<p>
+  <%= f.label :username %>
+  <%= f.text_field :username %>  
+</p>
+<p>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</p>
+<p>
+  <%= f.label "Confirm Password" %>
+  <%= f.password_field :password_confirm %>
+</p>
+
+<p>
+  <%= f.submit "Sign Up" %>
+</p>
 
 <% end %>
