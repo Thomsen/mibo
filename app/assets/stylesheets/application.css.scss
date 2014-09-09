@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+/**
+ * mv application.css application.css.scss
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
