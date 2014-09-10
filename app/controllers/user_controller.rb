@@ -10,7 +10,7 @@ class UserController < ApplicationController
     if @user.save
       redirect_to '/'
     else
-      redirect_to '/'
+      render template: 'user/_register' # redirect_to no transfer
     end
   end
 
