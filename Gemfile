@@ -43,5 +43,8 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
+# jquery validation
+gem 'jquery-validation-rails', '~> 1.12.0'
+
 # windows timezone
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
