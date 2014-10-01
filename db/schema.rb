@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910122349) do
+ActiveRecord::Schema.define(version: 20140924120321) do
+
+  create_table "statuses", force: true do |t|
+    t.text     "content"
+    t.datetime "create_at"
+    t.integer  "source_id"
+    t.integer  "reposts_count"
+    t.integer  "comments_count"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.integer  "userid_id"
+    t.integer  "respacket_id_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "statuses", ["respacket_id_id"], name: "index_statuses_on_respacket_id_id"
+  add_index "statuses", ["userid_id"], name: "index_statuses_on_userid_id"
 
   create_table "users", force: true do |t|
     t.string   "username"
@@ -22,8 +39,8 @@ ActiveRecord::Schema.define(version: 20140910122349) do
     t.string   "remark"
     t.integer  "online_status"
     t.datetime "created_at"
-    t.string "description"
+    t.string   "description"
     t.datetime "updated_at"
   end
-	
+
 end

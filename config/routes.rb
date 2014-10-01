@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :resources
+
   post 'user/create'
   get 'user/profile'
   get 'user/modify'

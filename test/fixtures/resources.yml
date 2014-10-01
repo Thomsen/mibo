@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  res_name: MyString
+  res_uri: MyString
+  res_uri: MyString
+  res_desc: MyString
+  respacket_id_id: 
+
+two:
+  res_name: MyString
+  res_uri: MyString
+  res_uri: MyString
+  res_desc: MyString
+  respacket_id_id: 
