@@ -1,8 +1,28 @@
 <br />
-<%= form_for :statuses do |f| %>
+
+<%= form_for :status, url: statuses_create_path do |f| %>
+
+<%= f.hidden_field :user_id, :value => @user.id %>
+
 <div class="form-group">
-<%= f.text_area :content %>
+  <%= f.text_area :content, class: "form-control col-sm-5" %>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-11">
+      <%= f.submit "Send", class: "btn btn-default" %>
+    </div>
 </div>
 
 <% end %>
 
+<table >
+<% @statuses.each do |s| %>
+<tr>
+  <td>
+    <%= s.content %>
+  </td>
+</tr>
+
+<% end %>
+</table>

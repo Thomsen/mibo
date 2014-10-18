@@ -4,6 +4,12 @@ class WelcomeController < ApplicationController
   end
 
   def main
+    @statuses = Status.all
+    
+    u_id = flash[:u_id]
+    puts "user id #{u_id}"
+    @user = User.find_by_id(u_id)
+    @user_id = @user.id
     
   end
 
@@ -18,7 +24,8 @@ class WelcomeController < ApplicationController
         redirect_to welcome_index_path
       elsif @user.password == password
         @hint = 'welcome back'
-        redirect_to welcome_main_path
+        puts "login user id #{@user.id}"
+        redirect_to welcome_main_path, status: 301, flash: {u_id: @user.id}
       else
         @hint = 'login failed, please check up you info'
       end

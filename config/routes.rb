@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
 
-  resources :resources
+  # statuses route
+  post 'statuses/create'
+  get 'statuses/reply'
+  get 'statuses/forward'
+  get 'statuses/delete'
 
+  # resources route
+  resources :resources
+  
+  # user route
   post 'user/create'
   get 'user/profile'
   get 'user/modify'
 
+  # welcome route
   get 'welcome/register'
   get 'welcome/login'
   post 'welcome/login'
