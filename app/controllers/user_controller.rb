@@ -6,7 +6,7 @@ class UserController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)  # new to create
     if @user.save
       redirect_to '/'
     else
@@ -16,7 +16,7 @@ class UserController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :portrait_uri)
   end
   
 end

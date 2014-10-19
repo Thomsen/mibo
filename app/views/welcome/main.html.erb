@@ -2,6 +2,8 @@
 
 <%= form_for :status, url: statuses_create_path do |f| %>
 
+<%= image_tag @user.portrait_uri.url(:thumb) %>
+
 <%= f.hidden_field :user_id, :value => @user.id %>
 
 <div class="form-group">

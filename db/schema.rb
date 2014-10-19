@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924141925) do
+ActiveRecord::Schema.define(version: 20141019091926) do
 
   create_table "resources", force: true do |t|
     t.string   "res_name"
@@ -46,12 +46,15 @@ ActiveRecord::Schema.define(version: 20140924141925) do
     t.string   "password"
     t.integer  "gender"
     t.string   "email"
-    t.string   "profile_url"
     t.string   "remark"
     t.integer  "online_status"
     t.datetime "created_at"
     t.string   "description"
     t.datetime "updated_at"
+    t.string   "portrait_uri_file_name"
+    t.string   "portrait_uri_content_type"
+    t.integer  "portrait_uri_file_size"
+    t.datetime "portrait_uri_updated_at"
   end
 
 end
