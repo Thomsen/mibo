@@ -1,0 +1,3 @@
+[submodule "vendor/assets/stylesheets/material-design-icons"]
+	path = vendor/assets/stylesheets/material-design-icons
+	url = https://github.com/google/material-design-icons.git
