@@ -14,19 +14,13 @@
 <% end %>
 
 <div class="container-fluid">
-  <div class="register_left">
-    <div class="form-group">
-      <div class="icon icon-ic_work_black_24dp">
-      </div>
-
-      <div class="svg-ic_account_box_24px svg-ic_account_box_100px-dims">
-      </div>
-      
-      <%= f.file_field :portrait_uri, class: "register_file_filed" %>
-    
+  <div class="register_portrait">
+    <div class="svg-ic_account_box_24px svg-ic_account_box_100px-dims">
     </div>
+      
+    <%= f.file_field :portrait_uri, class: "portrait_browser" %>
   </div>
-  <div class="register_right">
+  <div class="register_info">
     <div class="form-group">
       <%= f.label :username, class: "col-sm-3 control-label" %>
       <div class="col-lg-7">

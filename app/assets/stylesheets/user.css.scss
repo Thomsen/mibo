@@ -1,3 +1,24 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.register_portrait {
+  width: 70%;
+  float: right;
+   
+}
+.register_info {
+  width: 30%;
+  float: right;
+}
+
+.portrait_browser {
+  position: relative;
+  top: 75px
+}
+
+.svg-ic_account_box_100px-dims {
+    width: 24px;
+    height: 24px;
+    transform: scale(5, 5);
+}
