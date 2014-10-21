@@ -23,3 +23,6 @@
 *~
 
 /app/assets/stylesheets/.sass-cache/
+
+# image dir
+/public/system
