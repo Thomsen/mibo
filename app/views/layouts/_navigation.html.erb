@@ -1,5 +1,5 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top header">
+  <div class="col-md-12" >
       <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -9,10 +9,8 @@
           </button>
           <%= link_to 'Home', root_path, class: 'navbar-brand' %>
       </div>
-      <div class="navbar-collapse collapse">
-           <ul class="nav navbar-nav">
-               <%= render 'layouts/navigation_links' %>
-           </ul>
+      <div class="collapse navbar-collapse" id="navbar-collapse1">
+        <%= render 'layouts/navigation_links' %>
       </div>
   </div>
 </nav>
