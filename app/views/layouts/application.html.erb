@@ -7,15 +7,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="home-template">
+<body class="container">
 
   <%= render 'layouts/navigation' %>
   
   <div class="jumbotron masthead">
     <%#=  render 'layouts/messages' #%>
-    <%= yield %>
   </div>
 
+  <%= yield %>
   <div>
   </div>
 

@@ -1,5 +1,32 @@
-<br />
-
+<div class="container" id="main">
+<div class="row">
+<div class="col-md-4 col-sm-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="pull-right" href="#"></a>
+        </div>
+        <div class="well well-sm">
+            <div class="media">
+                <a class="thumbnail pull-left" href="#">
+                   <img class="media-object" src="//placehold.it/80" />
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">user name</h4>
+                    <p>
+                       <span class="label label-info">10 photos</span>
+                       <span class="label label-primary">89 followers</span>
+                   </p>
+                   <p>
+                       <a class="btn btn-xs btn-default" href="#"><span class="glyphicon glyphicon-comment"></span>Message</a>
+                       <a class="btn btn-xs btn-default" href="#"><span class="glyphicon glyphicon-heart"></span>Favorite</a>
+                   </p> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-sm-8">
+<div class="well">
 <%= form_for :status, url: statuses_create_path do |f| %>
 
 <%= image_tag @user.portrait_uri.url(:thumb) %>
@@ -7,24 +34,34 @@
 <%= f.hidden_field :user_id, :value => @user.id %>
 
 <div class="form-group">
-  <%= f.text_area :content, class: "form-control col-sm-5" %>
+  <%= f.text_area :content, class: "form-control" %>
 </div>
-
-<div class="form-group">
-    <div class="col-sm-offset-11">
-      <%= f.submit "Send", class: "btn btn-default" %>
+   <%= f.submit "Post", class: "btn btn-success pull-right" %>
+   <ul class="list-inline">
+       <li><a href="#"><i class="glyphicon glyphicon-align-left"></i></a></li>
+       <li><a href="#"><i class="glyphicon glyphicon-align-center"></i></a></li>
+       <li><a href="#"><i class="glyphicon glyphicon-align-right"></i></a></li>
+   </ul>
+<% end %>
+</div>
+</div>
+</div>
+  
+<div class="row">
+  <% @statuses.each do |s| %>
+  <div class="col-md-4 col-sm-4" >
+    <div class="panel panel-default">
+    <div class="panel-heading"> </div>
+    <div class="panel-body">
+        <a class="thumbnail pull-left" href="#">
+           <img class="media-object" src="//placehold.it/40" />
+        </a>
+        <div class="clearfix"></div>
+        <hr />
+          <%= s.content %>
     </div>
+    </div>
+  </div>
+  <% end %>
 </div>
-
-<% end %>
-
-<table >
-<% @statuses.each do |s| %>
-<tr>
-  <td>
-    <%= s.content %>
-  </td>
-</tr>
-
-<% end %>
-</table>
+</div>
