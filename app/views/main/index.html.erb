@@ -19,7 +19,7 @@
                    <p>
                        <a class="btn btn-xs btn-default" href="#"><span class="glyphicon glyphicon-comment"></span>Message</a>
                        <a class="btn btn-xs btn-default" href="#"><span class="glyphicon glyphicon-heart"></span>Favorite</a>
-                   </p> 
+                   </p>
                 </div>
             </div>
         </div>
@@ -28,8 +28,6 @@
 <div class="col-md-8 col-sm-12">
 <div class="well">
 <%= form_for :status, url: statuses_create_path do |f| %>
-
-<%= image_tag @user.portrait_uri.url(:thumb) %>
 
 <%= f.hidden_field :user_id, :value => @user.id %>
 
@@ -46,7 +44,7 @@
 </div>
 </div>
 </div>
-  
+
 <div class="row">
   <% @statuses.each do |s| %>
   <div class="col-md-4 col-sm-4" >

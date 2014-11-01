@@ -9,16 +9,18 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="container">
+<body class="container-fluid">
 
-  <%= render 'layouts/navigation' %>
-  
-  <div class="jumbotron masthead">
-    <%#=  render 'layouts/messages' #%>
+  <div class="header">
+    <%= render 'layouts/navigation' %>
   </div>
 
-  <%= yield %>
-  <div>
+  <div class="jumbotron masthead">
+    <%=  render 'layouts/messages' %>
+  </div>
+
+  <div class="container">
+    <%= yield %>
   </div>
 
 </body>
