@@ -8,24 +8,24 @@ Rails.application.routes.draw do
 
   # resources route
   resources :resources
-  
+
   # user route
   post 'user/create'
   get 'user/profile'
   get 'user/modify'
+  get 'user/login'
+  post 'user/login'
 
-  # welcome route
-  get 'welcome/register'
-  get 'welcome/login'
-  post 'welcome/login'
-  get 'welcome/index'
-  get 'welcome/main'
+  # main route
+  get 'main/register'
+  get 'main/index'
+  get 'main/timeline'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'main#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

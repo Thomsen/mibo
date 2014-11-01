@@ -2,7 +2,7 @@ class StatusesController < ApplicationController
   def create
     @status = Status.new(status_params)
     if @status.save
-      redirect_to welcome_main_path, flash: {u_id: @status.user_id}
+      redirect_to main_index_path, flash: {u_id: @status.user_id}
     else
       
     end

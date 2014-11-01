@@ -15,7 +15,7 @@
 
 <div class="container-fluid">
   <div class="register_portrait">
-      
+
     <%#= f.file_field :portrait_uri, class: "portrait_browser" #%>
   </div>
   <div class="register_info">
@@ -25,21 +25,21 @@
         <%= f.text_field :username, class: "form-control required" %>
       </div>
     </div>
-    
+
     <div class="form-group">
       <%= f.label :email, class: "col-sm-3 control-label" %>
       <div class="col-lg-7">
         <%= f.text_field :email, class: "form-control required email" %>
       </div>
     </div>
-    
+
     <div class="form-group">
       <%= f.label :password, class: "col-sm-3 control-label" %>
       <div class="col-lg-7">
         <%= f.password_field :password, class: "form-control required" %>
       </div>
     </div>
-    
+
     <div class="form-group">
       <%= f.label "Confirm Password", class: "col-sm-3 control-label" %>
       <div class="col-lg-7">
@@ -47,13 +47,13 @@
       </div>
       <div class="col-sm-2 status"> </div>
     </div>
-    
+
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-10">
         <%= f.submit "Sign Up", class: "btn btn-default" %>
-        <%= link_to "sign in",  welcome_login_path, :class => 'btn btn-default' %>  
+        <%= link_to "sign in",  user_login_path, :class => 'btn btn-default' %>
       </div>
-    
+
     </div>
   </div>
 </div>
