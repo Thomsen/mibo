@@ -21,6 +21,8 @@ class UsersController < ApplicationController
       elsif @user.password == password
         @hint = 'welcome back'
         puts "login user id #{@user.id}"
+        session[:user_name] = username
+        session[:user_id] = @user.id
         redirect_to mains_index_path, status: 301, flash: {u_id: @user.id}
       else
         @hint = 'login failed, please check up you info'

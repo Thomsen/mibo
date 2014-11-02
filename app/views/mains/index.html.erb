@@ -8,10 +8,10 @@
         <div class="well well-sm">
             <div class="media">
                 <a class="thumbnail pull-left" href="#">
-                   <img class="media-object" src="//placehold.it/80" />
+                   <%= image_tag @user.portrait_uri.url, size: "80x80" %>
                 </a>
                 <div class="media-body">
-                    <h4 class="media-heading">user name</h4>
+                    <h4 class="media-heading"><%= session[:user_name] %></h4>
                     <p>
                        <span class="label label-info">10 photos</span>
                        <span class="label label-primary">89 followers</span>
@@ -52,9 +52,11 @@
     <div class="panel panel-default">
     <div class="panel-heading"> </div>
     <div class="panel-body">
+        <% @content_user = User.find_by_id(s.user_id) %>
         <a class="thumbnail pull-left" href="#">
-           <img class="media-object" src="//placehold.it/40" />
+           <%= image_tag @content_user.portrait_uri.url, size: "40x40" %>
         </a>
+        <%= @content_user.username %>
         <div class="clearfix"></div>
         <hr />
         <div class="wrap-lengthen">
