@@ -1,10 +1,10 @@
-class MainController < ApplicationController
+class MainsController < ApplicationController
   def welcome
     @user = User.new
   end
 
   def index
-    @statuses = Status.all
+    @statuses = Content.all
 
     u_id = flash[:u_id]
     puts "user id #{u_id}"

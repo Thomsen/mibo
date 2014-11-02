@@ -1,4 +1,4 @@
-<%= form_for :user, :html => {:id => 'signupform', :class => 'form-horizontal', :role => 'form'}, url: user_create_path do |f| %>
+<%= form_for :user, :html => {:id => 'signupform', :class => 'form-horizontal', :role => 'form'}, url: users_path do |f| %>
 
 <% if @user.errors.any? %>
 
@@ -51,7 +51,7 @@
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-10">
         <%= f.submit "Sign Up", class: "btn btn-default" %>
-        <%= link_to "sign in",  user_login_path, :class => 'btn btn-default' %>
+        <%= link_to "Sign in",  users_login_path, :class => 'btn btn-default' %>
       </div>
 
     </div>
