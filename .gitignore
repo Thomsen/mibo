@@ -16,7 +16,7 @@
 /log/*.log
 /tmp
 
-*.lock
+#*.lock # heroku compile
 *.sqltie3
 
 *#

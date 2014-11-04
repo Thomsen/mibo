@@ -38,6 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# did you mean
+gem 'did_you_mean', group: [:development, :test]
 
 # bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
