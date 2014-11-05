@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
+  # attachments
+  resources :attachments
+
   # statuses route
   resources :contents
-
-  # resources route
-  resources :resources
 
   # user route
   get 'users/login'

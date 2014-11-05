@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101135709) do
+ActiveRecord::Schema.define(version: 20141103131000) do
+
+  create_table "attachments", force: true do |t|
+    t.text     "attach_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
+  end
 
   create_table "contents", force: true do |t|
     t.text     "text"
@@ -29,17 +39,6 @@ ActiveRecord::Schema.define(version: 20141101135709) do
 
   add_index "contents", ["respacket_id"], name: "index_contents_on_respacket_id"
   add_index "contents", ["user_id"], name: "index_contents_on_user_id"
-
-  create_table "resources", force: true do |t|
-    t.string   "res_name"
-    t.string   "res_uri"
-    t.string   "res_desc"
-    t.integer  "respacket_id_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "resources", ["respacket_id_id"], name: "index_resources_on_respacket_id_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

@@ -1,13 +1,14 @@
 class ContentsController < ApplicationController
 
+  def index
+  end
+  
   def create
-    @content = Content.new(status_params)
+    @content = Content.new(content_params)
     if @content.save
-      redirect_to main_index_path, flash: {u_id: @content.user_id}
+      redirect_to mains_index_path, flash: {u_id: @content.user_id}
     else
-
     end
-
   end
 
   def reply
