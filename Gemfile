@@ -43,6 +43,8 @@ gem 'spring',        group: :development
 gem 'did_you_mean', group: [:development, :test]
 group :development do
   gem 'guard'
+  gem 'ruby_gntp'
+  gem 'guard-bundler', require: false # Bundler class
 end
 
 # bootstrap
