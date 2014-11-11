@@ -41,6 +41,9 @@ gem 'spring',        group: :development
 
 # did you mean
 gem 'did_you_mean', group: [:development, :test]
+group :development do
+  gem 'guard'
+end
 
 # bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
