@@ -1,70 +1,98 @@
 <div id="main">
-<div class="row">
-<div class="col-md-4 col-sm-6">
-    <div class="panel panel-default">
+  <div class="row">
+    <div class="col-md-4 col-sm-6">
+      <div class="panel panel-default">
         <div class="panel-heading">
-            <a class="pull-right" href="#"></a>
+          <a class="pull-right" href="#">
+          </a>
         </div>
         <div class="well well-sm">
-            <div class="media">
-                <a class="thumbnail pull-left" href="#">
-                   <%= image_tag @user.portrait_uri.url, size: "80x80" %>
+          <div class="media">
+            <a class="thumbnail pull-left" href="#">
+              <%= image_tag @user.portrait_uri.url, size: "80x80" %>
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">
+                <%= session[:user_name] %>
+              </h4>
+              <p>
+                <span class="label label-info">10 photos
+                </span>
+                <span class="label label-primary">89 followers
+                </span>
+              </p>
+              <p>
+                <a class="btn btn-xs btn-default" href="#">
+                  <span class="glyphicon glyphicon-comment">
+                  </span>Message
                 </a>
-                <div class="media-body">
-                    <h4 class="media-heading"><%= session[:user_name] %></h4>
-                    <p>
-                       <span class="label label-info">10 photos</span>
-                       <span class="label label-primary">89 followers</span>
-                   </p>
-                   <p>
-                       <a class="btn btn-xs btn-default" href="#"><span class="glyphicon glyphicon-comment"></span>Message</a>
-                       <a class="btn btn-xs btn-default" href="#"><span class="glyphicon glyphicon-heart"></span>Favorite</a>
-                   </p>
-                </div>
+                <a class="btn btn-xs btn-default" href="#">
+                  <span class="glyphicon glyphicon-heart">
+                  </span>Favorite
+                </a>
+              </p>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<div class="col-md-8 col-sm-12">
-<div class="well">
+    <div class="col-md-8 col-sm-12">
+      <div class="well">
 
-<%= form_for :content, url: contents_path do |f| %>
+        <%= form_for :content, url: contents_path do |f| %>
 
-<%= f.hidden_field :user_id, :value => @user.id %>
+        <%= f.hidden_field :user_id, :value => @user.id %>
 
-<div class="form-group">
-  <%= f.text_area :text, class: "form-control" %>
-</div>
-   <%= f.submit "Post", class: "btn btn-success pull-right" %>
-   <ul class="list-inline">
-       <li><a href="#"><i class="glyphicon glyphicon-align-left"></i></a></li>
-       <li><a href="#"><i class="glyphicon glyphicon-align-center"></i></a></li>
-       <li><a href="#"><i class="glyphicon glyphicon-align-right"></i></a></li>
-   </ul>
-<% end %>
-</div>
-</div>
-</div>
-
-<div class="row">
-  <% @statuses.each do |s| %>
-  <div class="col-md-4 col-sm-4" >
-    <div class="panel panel-default">
-    <div class="panel-heading"> </div>
-    <div class="panel-body">
-        <% @content_user = User.find_by_id(s.user_id) %>
-        <a class="thumbnail pull-left" href="#">
-           <%= image_tag @content_user.portrait_uri.url, size: "40x40" %>
-        </a>
-        <%= @content_user.username %>
-        <div class="clearfix"></div>
-        <hr />
-        <div class="wrap-lengthen">
-          <%= s.text %>
+        <div class="form-group">
+          <%= f.text_area :text, class: "form-control" %>
         </div>
-    </div>
+        <%= f.submit "Post", class: "btn btn-success pull-right" %>
+        <ul class="list-inline">
+          <li>
+            <a href="#">
+              <i class="glyphicon glyphicon-align-left">
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="glyphicon glyphicon-align-center">
+              </i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="glyphicon glyphicon-align-right">
+              </i>
+            </a>
+          </li>
+        </ul>
+        <% end %>
+      </div>
     </div>
   </div>
-  <% end %>
-</div>
+
+  <div class="row">
+    <% @statuses.each do |s| %>
+    <div class="col-md-4 col-sm-4" >
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        </div>
+        <div class="panel-body">
+          <% @content_user = User.find_by_id(s.user_id) %>
+          <a class="thumbnail pull-left" href="#">
+            <%= image_tag @content_user.portrait_uri.url, size: "40x40" %>
+          </a>
+          <%= @content_user.username %>
+          <div class="clearfix">
+          </div>
+          <hr />
+          <div class="wrap-lengthen">
+            <%= s.text %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
