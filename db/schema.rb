@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103131000) do
+ActiveRecord::Schema.define(version: 20141112151228) do
 
   create_table "attachments", force: true do |t|
     t.text     "attach_url"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20141103131000) do
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
+  end
+
+  create_table "attachpackets", force: true do |t|
+    t.boolean  "visiable"
+    t.text     "packet_desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contents", force: true do |t|
