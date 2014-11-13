@@ -5,7 +5,7 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new(content_params)
-    @packet = Attachpacket.create(visible: true, packet_desc: "")
+    @packet = Attachpacket.create(visible: 1, packet_desc: "")
     @content.packet_id = @packet.id # judge
     @attach = Attachment.new(attach_params)
     @attach.packet_id = @packet.id
