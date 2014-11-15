@@ -5,10 +5,17 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new(content_params)
-    @packet = Attachpacket.create(visible: 1, packet_desc: "")
-    @content.packet_id = @packet.id # judge
-    @attach = Attachment.new(attach_params)
-    @attach.packet_id = @packet.id
+
+    if attach_params.blank?
+      puts 'attach is blank'
+    else
+      @packet = Attachpacket.create(visible: 1, packet_desc: "")
+      @attach = Attachment.new(attach_params)
+      @attach.packet_id = @packet.id
+      @content.packet_id = @packet.id # judge
+      @attach.save
+    end
+
     if @content.save
       redirect_to mains_index_path, flash: {u_id: @content.user_id}
     else
@@ -30,7 +37,7 @@ class ContentsController < ApplicationController
   end
 
   def attach_params
-    params.require(:content).permit()
+    params.require(:content).permit(:attach)
   end
 
 end

@@ -67,7 +67,7 @@
             </a>
           </li>
           <li>
-            <%= f.file_field :packet_id %>
+            <%= f.file_field :attach %>
           </li>
         </ul>
         <% end %>
@@ -92,6 +92,13 @@
           <hr />
           <div class="wrap-lengthen">
             <%= s.text %>
+            <% @content_attach = Attachment.where(:packet_id => s.packet_id).all %>
+            <% if @content_attach.blank? %>
+            <% else %>
+              <% @content_attach.each do |atth| %>
+                <%= image_tag atth.attach.url, size: "260x220" %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
