@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # user route
   get 'users/login'
   post 'users/login'
+  get 'users/logout'
+  post 'users/follow'
   resources :users
 
   # main route

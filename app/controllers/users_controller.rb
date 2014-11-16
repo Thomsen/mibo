@@ -9,6 +9,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    @user_id = session[:user_id]
+    @firend = User.new(firend_params)
+    @firend_id = @firend.id
+    @user_relation = UserRelation.new(:user_id => @user_id, :firend_id => @firend_id)
+    
+  end
+
   def login
     unless request.get?
       username = params[:user][:username]
@@ -30,6 +38,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def logout
+    reset_session
+    redirect_to mains_welcome_path
+  end
+  
   private
   def user_params
     params.require(:user).permit(:username, :email, :password, :portrait_uri)

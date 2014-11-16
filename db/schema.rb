@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113152419) do
+ActiveRecord::Schema.define(version: 20141116042103) do
 
   create_table "attachments", force: true do |t|
     t.text     "attach_url"
@@ -47,6 +47,19 @@ ActiveRecord::Schema.define(version: 20141113152419) do
 
   add_index "contents", ["packet_id"], name: "index_contents_on_packet_id"
   add_index "contents", ["user_id"], name: "index_contents_on_user_id"
+
+  create_table "user_relations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.integer  "relation"
+    t.date     "follow_time"
+    t.date     "followed_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_relations", ["friend_id"], name: "index_user_relations_on_friend_id"
+  add_index "user_relations", ["user_id"], name: "index_user_relations_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username"
