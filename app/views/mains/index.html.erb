@@ -40,7 +40,7 @@
       <div class="well">
 
         <%= form_for :content, url: contents_path do |f| %>
-
+          
         <%= f.hidden_field :user_id, :value => @user.id %>
 
         <div class="form-group">
@@ -87,6 +87,10 @@
             <%= image_tag @content_user.portrait_uri.url, size: "40x40" %>
           </a>
           <%= @content_user.username %>
+          <%= form_for :user_relations, method: :post, url: users_follow_path do |ur| %>
+            <%= ur.hidden_field  :id, :value => @content_user.id %>
+            <%= ur.submit "follow", class: "btn" %>
+          <% end %>
           <div class="clearfix">
           </div>
           <hr />

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141116042103) do
+ActiveRecord::Schema.define(version: 20141117144747) do
 
   create_table "attachments", force: true do |t|
     t.text     "attach_url"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20141116042103) do
 
   create_table "user_relations", force: true do |t|
     t.integer  "user_id"
-    t.integer  "friend_id"
+    t.integer  "firend_id"
     t.integer  "relation"
     t.date     "follow_time"
     t.date     "followed_time"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20141116042103) do
     t.datetime "updated_at"
   end
 
-  add_index "user_relations", ["friend_id"], name: "index_user_relations_on_friend_id"
+  add_index "user_relations", ["firend_id"], name: "index_user_relations_on_firend_id"
   add_index "user_relations", ["user_id"], name: "index_user_relations_on_user_id"
 
   create_table "users", force: true do |t|
