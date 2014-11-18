@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     @firend = User.new(firend_params)
     @firend_id = @firend.id
     @user_relation = UserRelation.new(:user_id => @user_id, :firend_id => @firend_id)
+    if @user_relation.save
+      redirect_to mains_index_path
+    end
     
   end
 
@@ -46,6 +49,9 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username, :email, :password, :portrait_uri)
+  end
+  def firend_params
+    params.require(:user_relations).permit(:id)
   end
 
 end
