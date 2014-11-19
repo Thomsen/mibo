@@ -18,8 +18,8 @@
               <p>
                 <span class="label label-info">10 photos
                 </span>
-                <span class="label label-primary">89 followers
-                </span>
+                <% @followers_count = UserRelation.where(firend_id: "#{@user.id}").count %> 
+                <%= link_to "#@followers_count followers", users_followers_path, class: "label label-primary"  %>
               </p>
               <p>
                 <a class="btn btn-xs btn-default" href="#">
@@ -89,7 +89,14 @@
           <%= @content_user.username %>
           <%= form_for :user_relations, method: :post, url: users_follow_path do |ur| %>
             <%= ur.hidden_field  :id, :value => @content_user.id %>
-            <%= ur.submit "follow", class: "btn" %>
+            <% @user_relation = UserRelation.where(:user_id => @user.id, :firend_id => @content_user.id).first %>
+            <% if @user_relation.nil? || @user_relation.relation == UserRelation::NORMAL || @user_relation.relation == UserRelation::FOLLOWED %>
+              <%= ur.submit "follow", class: "btn" %>
+            <% elsif @user_relation.relation == UserRelation::FIREND %>
+              <%= ur.submit "firend", class: "btn" %>
+            <% else %>
+              <%= ur.submit "followed", class: "btn" %>
+            <% end %>
           <% end %>
           <div class="clearfix">
           </div>

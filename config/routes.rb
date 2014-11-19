@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'users/login'
   post 'users/login'
   get 'users/logout'
-  #get 'users/follow'
+  get 'users/followers'
   post 'users/follow'
   resources :users
 

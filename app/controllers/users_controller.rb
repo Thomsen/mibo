@@ -13,10 +13,55 @@ class UsersController < ApplicationController
     @user_id = session[:user_id]
     @firend = User.new(firend_params)
     @firend_id = @firend.id
-    @user_relation = UserRelation.new(:user_id => @user_id, :firend_id => @firend_id)
-    if @user_relation.save
+    @user_relation = UserRelation.where(:user_id => @user_id, :firend_id => @firend_id).first
+    if @user_relation.nil?
+      @user_relation = UserRelation.new(:user_id => @user_id, :firend_id => @firend_id)
+      @user_relation.relation = UserRelation::FOLLOW
+      @usr_relation.follow_time = Time.new
+    else
+      if @user_relation.relation == UserRelation::FOLLOW
+        @user_relation.relation = UserRelation::NORMAL
+        @user_relation.follow_time = NIL
+      elsif @user_relation.relation == UserRelation::FIREND
+        @user_relation.relation = UserRelation::FOLLOWED
+        @user_relation.follow_time = Time.new
+        @user_relation.follow_time = NIL
+      elsif @user_relation.relation == UserRelation::FOLLOWED
+        @user_relation.relation = UserRelation::FIREND
+      else
+        @user_relation.relation = UserRelation::FOLLOW
+        @user_relation.follow_time = Time.new
+      end
+    end
+    
+    @firend_relation = UserRelation.where(:user_id => @firend_id, :firend_id => @user_id).first
+    if @firend_relation.nil?
+      @firend_relation = UserRelation.new(:user_id => @firend_id, :firend_id => @user_id)
+      @firend_relation.relation = UserRelation::FOLLOWED
+      @firend_relation.followed_time = Time.new
+    else
+      if @firend_relation.relation == UserRelation::FOLLOW
+        @firend_relation.relation = UserRelation::FIREND
+        @firend_relation.followed_time = Time.new
+      elsif @firend_relation.relation == UserRelation::FOLLOWED
+        @firend_relation.relation = UserRelation::NORMAL
+        @firend_relation.followed_time = NIL
+      elsif @firend_relation.relation == UserRelation::FIREND
+        @firend_relation.relation = UserRelation::FOLLOW
+        @firend_relation.followed_time = NIL
+      else
+        @firend_relation.relation = UserRelation::FOLLOWED
+        @firend_relation.followed_time = Time.new
+      end
+    end
+    
+    if @user_relation.save && @firend_relation.save
       redirect_to mains_index_path
     end
+    
+  end
+
+  def followers
     
   end
 
