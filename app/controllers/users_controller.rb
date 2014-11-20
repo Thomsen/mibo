@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user_relation.nil?
       @user_relation = UserRelation.new(:user_id => @user_id, :firend_id => @firend_id)
       @user_relation.relation = UserRelation::FOLLOW
-      @usr_relation.follow_time = Time.new
+      @user_relation.follow_time = Time.new
     else
       if @user_relation.relation == UserRelation::FOLLOW
         @user_relation.relation = UserRelation::NORMAL
@@ -62,7 +62,15 @@ class UsersController < ApplicationController
   end
 
   def followers
-    
+    @user_relation = UserRelation.where(:firend_id => session[:user_id])
+    if @user_relation.nil?
+      
+    else
+      @user_relation.each do |ur|
+        
+      end
+    end
+
   end
 
   def login
