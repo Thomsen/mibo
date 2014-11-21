@@ -1,0 +1,26 @@
+<div class="media">
+  <a class="thumbnail pull-left" href="#">
+    <%= image_tag @user.portrait_uri.url, size: "80x80" %>
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= session[:user_name] %>
+    </h4>
+    <p>
+      <span class="label label-info">10 photos
+      </span>
+      <% @followers_count = UserRelation.where(firend_id: "#{@user.id}").count %>
+      <%= link_to "#@followers_count followers", users_followers_path, class: "label label-primary"  %>
+    </p>
+    <p>
+      <a class="btn btn-xs btn-default" href="#">
+        <span class="glyphicon glyphicon-comment">
+        </span>Message
+      </a>
+      <a class="btn btn-xs btn-default" href="#">
+        <span class="glyphicon glyphicon-heart">
+        </span>Favorite
+      </a>
+    </p>
+  </div>
+</div>

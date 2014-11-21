@@ -7,113 +7,17 @@
           </a>
         </div>
         <div class="well well-sm">
-          <div class="media">
-            <a class="thumbnail pull-left" href="#">
-              <%= image_tag @user.portrait_uri.url, size: "80x80" %>
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading">
-                <%= session[:user_name] %>
-              </h4>
-              <p>
-                <span class="label label-info">10 photos
-                </span>
-                <% @followers_count = UserRelation.where(firend_id: "#{@user.id}").count %> 
-                <%= link_to "#@followers_count followers", users_followers_path, class: "label label-primary"  %>
-              </p>
-              <p>
-                <a class="btn btn-xs btn-default" href="#">
-                  <span class="glyphicon glyphicon-comment">
-                  </span>Message
-                </a>
-                <a class="btn btn-xs btn-default" href="#">
-                  <span class="glyphicon glyphicon-heart">
-                  </span>Favorite
-                </a>
-              </p>
-            </div>
-          </div>
+          <%= render "users/user_profile" %>
         </div>
       </div>
     </div>
     <div class="col-md-8 col-sm-12">
       <div class="well">
-
-        <%= form_for :content, url: contents_path do |f| %>
-          
-        <%= f.hidden_field :user_id, :value => @user.id %>
-
-        <div class="form-group">
-          <%= f.text_area :text, class: "form-control" %>
-        </div>
-        <%= f.submit "Post", class: "btn btn-success pull-right" %>
-        <ul class="list-inline">
-          <li>
-            <a href="#">
-              <i class="glyphicon glyphicon-align-left">
-              </i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="glyphicon glyphicon-align-center">
-              </i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="glyphicon glyphicon-align-right">
-              </i>
-            </a>
-          </li>
-          <li>
-            <%= f.file_field :attach %>
-          </li>
-        </ul>
-        <% end %>
+        <%= render "contents/post_content" %>
       </div>
     </div>
   </div>
-
   <div class="row">
-    <% @statuses.each do |s| %>
-    <div class="col-md-4 col-sm-4" >
-      <div class="panel panel-default">
-        <div class="panel-heading">
-        </div>
-        <div class="panel-body">
-          <% @content_user = User.find_by_id(s.user_id) %>
-          <a class="thumbnail pull-left" href="#">
-            <%= image_tag @content_user.portrait_uri.url, size: "40x40" %>
-          </a>
-          <%= @content_user.username %>
-          <%= form_for :user_relations, method: :post, url: users_follow_path do |ur| %>
-            <%= ur.hidden_field  :id, :value => @content_user.id %>
-            <% @user_relation = UserRelation.where(:user_id => @user.id, :firend_id => @content_user.id).first %>
-            <% if @user_relation.nil? || @user_relation.relation == UserRelation::NORMAL || @user_relation.relation == UserRelation::FOLLOWED %>
-              <%= ur.submit "follow", class: "btn" %>
-            <% elsif @user_relation.relation == UserRelation::FIREND %>
-              <%= ur.submit "firend", class: "btn" %>
-            <% else %>
-              <%= ur.submit "followed", class: "btn" %>
-            <% end %>
-          <% end %>
-          <div class="clearfix">
-          </div>
-          <hr />
-          <div class="wrap-lengthen">
-            <%= s.text %>
-            <% @content_attach = Attachment.where(:packet_id => s.packet_id) %>
-            <% if @content_attach.blank? %>
-            <% else %>
-              <% @content_attach.each do |atth| %>
-                <%= image_tag atth.attach.url, size: "260x220" %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
+    <%= render partial: "contents/followed_contents" %>
   </div>
 </div>

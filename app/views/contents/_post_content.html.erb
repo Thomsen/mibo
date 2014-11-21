@@ -1,0 +1,31 @@
+<%= form_for :content, url: contents_path do |f| %>
+<%= f.hidden_field :user_id, :value => @user.id %>
+
+<div class="form-group">
+  <%= f.text_area :text, class: "form-control" %>
+</div>
+<%= f.submit "Post", class: "btn btn-success pull-right" %>
+<ul class="list-inline">
+  <li>
+    <a href="#">
+      <i class="glyphicon glyphicon-align-left">
+      </i>
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <i class="glyphicon glyphicon-align-center">
+      </i>
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <i class="glyphicon glyphicon-align-right">
+      </i>
+    </a>
+  </li>
+  <li>
+    <%= f.file_field :attach %>
+  </li>
+</ul>
+<% end %>

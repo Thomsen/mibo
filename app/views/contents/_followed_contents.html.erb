@@ -1,0 +1,39 @@
+<% @statuses.each do |s| %>
+<div class="col-md-4 col-sm-4" >
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+      <% @content_user = User.find_by_id(s.user_id) %>
+      <a class="thumbnail pull-left" href="#">
+        <%= image_tag @content_user.portrait_uri.url, size: "40x40" %>
+      </a>
+      <%= @content_user.username %>
+      <%= form_for :user_relations, method: :post, url: users_follow_path do |ur| %>
+      <%= ur.hidden_field  :id, :value => @content_user.id %>
+      <% @user_relation = UserRelation.where(:user_id => @user.id, :firend_id => @content_user.id).first %>
+      <% if @user_relation.nil? || @user_relation.relation == UserRelation::NORMAL || @user_relation.relation == UserRelation::FOLLOWED %>
+      <%= ur.submit "follow", class: "btn" %>
+      <% elsif @user_relation.relation == UserRelation::FIREND %>
+      <%= ur.submit "firend", class: "btn" %>
+      <% else %>
+      <%= ur.submit "followed", class: "btn" %>
+      <% end %>
+      <% end %>
+      <div class="clearfix">
+      </div>
+      <hr />
+      <div class="wrap-lengthen">
+        <%= s.text %>
+        <% @content_attach = Attachment.where(:packet_id => s.packet_id) %>
+        <% if @content_attach.blank? %>
+        <% else %>
+        <% @content_attach.each do |atth| %>
+        <%= image_tag atth.attach.url, size: "260x220" %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
