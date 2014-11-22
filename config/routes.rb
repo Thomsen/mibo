@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # attachments
   resources :attachments
 
-  # statuses route
+  # contents route
+  get 'contents/reply'
+  get 'contents/forward'
   resources :contents
 
   # user route

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)  # new to create
     if @user.save
-      redirect_to '/'
+      redirect_to '/', notice: "User was successfully created."
     else
       render template: 'users/_register' # redirect_to no transfer
     end

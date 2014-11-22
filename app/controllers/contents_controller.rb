@@ -28,7 +28,7 @@ class ContentsController < ApplicationController
   def forward
   end
 
-  def delete
+  def destroy
   end
 
   private
