@@ -2,14 +2,14 @@
 
 one:
   user_id: 
-  friend_id: 
+  firend_id: 
   relation: 1
   follow_time: 2014-11-16
   followed_time: 2014-11-16
 
 two:
   user_id: 
-  friend_id: 
+  firend_id: 
   relation: 1
   follow_time: 2014-11-16
   followed_time: 2014-11-16

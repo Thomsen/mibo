@@ -1,23 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
+  text: MyText One
   create_at: 2014-09-24 20:03:21
   source_id: 
   reposts_count: 
   comments_count: 
   longitude: 
   latitude: 
-  userid_id: 
-  respacket_id_id: 
+  user_id: 
+  packet_id: 
 
 two:
-  content: MyText
+  text: MyText Two
   create_at: 2014-09-24 20:03:21
   source_id: 
   reposts_count: 
   comments_count: 
   longitude: 
   latitude: 
-  userid_id: 
-  respacket_id_id: 
+  user_id: 
+  packet_id: 

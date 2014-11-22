@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  visiable: false
+  visible: false
   packet_desc: MyText
 
 two:
-  visiable: false
+  visible: false
   packet_desc: MyText
