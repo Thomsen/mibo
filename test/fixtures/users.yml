@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  id: 
-  username: MyString
-  password: MyString
+usrone:
+  id: 1000
+  username: usrone
+  password: 000000
   gender: 1
   email: MyString
   remark: MyString
@@ -11,10 +11,10 @@ one:
   created_at: 2014-09-08 11:35:48
   description: MyString
 
-two:
-  id: 
-  username: MyString
-  password: MyString
+usrtwo:
+  id: 1001
+  username: usrtwo
+  password: 000000
   gender: 1
   email: MyString
   remark: MyString
