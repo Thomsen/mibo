@@ -1,1 +1,9 @@
-followers
+<% if @user_relation.blank?  %>
+  <p> no followers </p>
+<% else %>
+  <% @user_relation.each do |ur| %>
+    <% @user = User.find_by_id(ur.user_id) %>
+    <%= render "users/user_profile" %>
+  <% end %>
+<% end %>
+
