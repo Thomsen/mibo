@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117144747) do
+ActiveRecord::Schema.define(version: 20141124150358) do
 
   create_table "attachments", force: true do |t|
     t.text     "attach_url"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20141117144747) do
     t.string   "portrait_uri_content_type"
     t.integer  "portrait_uri_file_size"
     t.datetime "portrait_uri_updated_at"
+    t.text     "passsalt"
   end
 
 end

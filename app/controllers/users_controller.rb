@@ -82,7 +82,7 @@ class UsersController < ApplicationController
       if @user.class == NilClass
         @hint = 'unregisted username!'
         redirect_to mains_welcome_path
-      elsif @user.password == password
+      elsif User.authen_by_username(username, password)
         @hint = 'welcome back'
         puts "login user id #{@user.id}"
         session[:user_name] = username
@@ -101,7 +101,7 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:username, :email, :password, :portrait_uri)
+    params.require(:user).permit(:username, :email, :form_password, :portrait_uri)
   end
   def firend_params
     params.require(:user_relations).permit(:id)

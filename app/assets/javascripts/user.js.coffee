@@ -22,7 +22,7 @@ valid = () ->
         required: true,
         email:    true,
 
-      "user[password]":
+      "user[form_password]":
         required: true,
         
       "user[password_confirm]": 
