@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # sessions
+  resources :sessions
+
   # attachments
   resources :attachments
 
