@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :sessions
 
   # attachments
+  get 'attachments/show_by_user'
   resources :attachments
 
   # contents route

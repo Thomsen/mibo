@@ -1,0 +1,7 @@
+<% if @attachs.blank? %>
+  
+<% else %>
+  <% @attachs.each do |att| %>
+    <%= image_tag att.attach.url, size: "250x180" %>
+  <% end %>
+<% end %>

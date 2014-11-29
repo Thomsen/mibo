@@ -27,7 +27,7 @@
           <hr />
           <div class="wrap-lengthen">
             <%= s.text %>
-            <% @content_attach = Attachment.where(:packet_id => s.packet_id) %>
+            <% @content_attach = Attachment.where(:attach_packet_id => s.attach_packet_id) %>
             <% if @content_attach.blank? %>
             <% else %>
               <% @content_attach.each do |atth| %>

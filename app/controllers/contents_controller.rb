@@ -9,10 +9,10 @@ class ContentsController < ApplicationController
     if attach_params.blank?
       puts 'attach is blank'
     else
-      @packet = Attachpacket.create(visible: 1, packet_desc: "")
+      @packet = Attachpacket.create(user_id: @content.user_id, visible: 1, packet_desc: "")
       @attach = Attachment.new(attach_params)
-      @attach.packet_id = @packet.id
-      @content.packet_id = @packet.id # judge
+      @attach.attach_packet_id = @packet.id
+      @content.attach_packet_id = @packet.id # judge
       @attach.save
     end
 
