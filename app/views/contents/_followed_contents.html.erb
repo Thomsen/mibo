@@ -37,6 +37,22 @@
           </div>
         <% end %>
       </div>
+      <div class="input-group">
+        <div class="input-group-btn">
+          <form>
+          <button class="btn btn-default">+1</button>
+          <button class="btn btn-default">
+            <i class="glyphicon glyphicon-share"></i>
+          </button>
+          </form>
+        </div
+        <div >
+        <%= form_for :comment, url: comments_path do |c| %>
+        <!--form accept-charset="utf-8" action="/comments" enctype="multipart/form-data" method="post" /-->
+        <%= c.text_field :text, class: "form-control", placeholder: "Add a comment..."  %>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
