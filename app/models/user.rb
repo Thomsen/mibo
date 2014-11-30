@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :contents
+
   attr_accessor :form_password # no need db
 #  attr_accessible :username, :email, :password # need db, rails 4+ move controller
 
@@ -15,8 +17,6 @@ class User < ActiveRecord::Base
 
   has_attached_file :portrait_uri, :styles => { :medium => "300x300", :thumb => "100x100" }, :default_url => "//placehold.it/80"
   validates_attachment_content_type :portrait_uri, :content_type => /\Aimage\/.*\Z/
-
-  has_many :contents
 
   before_save :encrypt_password
 

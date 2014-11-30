@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130042228) do
+ActiveRecord::Schema.define(version: 20141130140332) do
 
   create_table "attachments", force: true do |t|
     t.text     "attach_url"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141130042228) do
     t.integer  "attach_file_size"
     t.datetime "attach_updated_at"
     t.integer  "attach_packet_id"
+    t.string   "attach_desc"
   end
 
   create_table "attachpackets", force: true do |t|
@@ -38,6 +39,9 @@ ActiveRecord::Schema.define(version: 20141130042228) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "source_id"
   end
 
   add_index "comments", ["content_id"], name: "index_comments_on_content_id"
@@ -45,9 +49,7 @@ ActiveRecord::Schema.define(version: 20141130042228) do
 
   create_table "contents", force: true do |t|
     t.text     "text"
-    t.datetime "create_at"
     t.integer  "source_id"
-    t.integer  "reposts_count"
     t.integer  "comments_count"
     t.float    "longitude"
     t.float    "latitude"
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(version: 20141130042228) do
     t.integer  "attach_packet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "forwards_count"
   end
 
   add_index "contents", ["attach_packet_id"], name: "index_contents_on_attach_packet_id"
@@ -76,10 +79,8 @@ ActiveRecord::Schema.define(version: 20141130042228) do
   create_table "users", force: true do |t|
     t.string   "username"
     t.string   "password"
-    t.integer  "gender"
     t.string   "email"
     t.string   "remark"
-    t.integer  "online_status"
     t.datetime "created_at"
     t.string   "description"
     t.datetime "updated_at"
@@ -88,6 +89,8 @@ ActiveRecord::Schema.define(version: 20141130042228) do
     t.integer  "portrait_uri_file_size"
     t.datetime "portrait_uri_updated_at"
     t.text     "passsalt"
+    t.string   "gender"
+    t.string   "online_status"
   end
 
 end
