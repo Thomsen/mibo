@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129110035) do
+ActiveRecord::Schema.define(version: 20141130042228) do
 
   create_table "attachments", force: true do |t|
     t.text     "attach_url"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20141129110035) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "content_id"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["content_id"], name: "index_comments_on_content_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "contents", force: true do |t|
     t.text     "text"
