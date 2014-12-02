@@ -8,12 +8,16 @@ class User < ActiveRecord::Base
   email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
   
   validates :username, presence: true,
-                        length: {minimum: 4}
+            length:           {minimum: 4},
+            uniqueness:       {case_sensitive: false}
+
   validates :form_password, presence: true,
-            length: {minimum: 6, maximum: 16}
-  validate :email, :presence => true,
-           :format           => {:with => email_regex },
-           :uniqueness       => { :case_sensitive => false }
+            length:           {minimum: 6, maximum: 16}
+
+  validates :email, :presence => true,
+           :format            => {:with => email_regex },
+           :uniqueness        => {:message => " already exit",
+                                  :case_sensitive => false }
 
   has_attached_file :portrait_uri, :styles => { :medium => "300x300", :thumb => "100x100" }, :default_url => "//placehold.it/80"
   validates_attachment_content_type :portrait_uri, :content_type => /\Aimage\/.*\Z/
