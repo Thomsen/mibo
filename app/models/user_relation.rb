@@ -5,6 +5,8 @@ class UserRelation < ActiveRecord::Base
   FOLLOW = 1 #
   FOLLOWED = 2 #
   FIREND = 3 #
-  NORMAL = 0 # 
+  NORMAL = 0 #
+
+  # 
 
 end

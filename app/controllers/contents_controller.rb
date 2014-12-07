@@ -23,9 +23,15 @@ class ContentsController < ApplicationController
   end
 
   def reply
+
   end
 
   def forward
+    @forward_content = Content.new(forward_params)
+    if @forward_content.save
+      redirect_to mains_index_path
+    else
+    end
   end
 
   def destroy
@@ -38,6 +44,10 @@ class ContentsController < ApplicationController
 
   def attach_params
     params.require(:content).permit(:attach)
+  end
+
+  def forward_params
+    params.require(:forward).permit(:text, :source_id)
   end
 
 end

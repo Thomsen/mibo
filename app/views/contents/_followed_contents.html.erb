@@ -37,23 +37,27 @@
           </div>
         <% end %>
       </div>
-      <div class="input-group">
-        <div class="input-group-btn">
-          <form>
-          <button class="btn btn-default">+1</button>
-          <button class="btn btn-default">
-            <i class="glyphicon glyphicon-share"></i>
-          </button>
-          </form>
-        </div
-        <div >
+      <div class="well">
+          <%= form_for :forward, url: contents_forward_path do |forward| %>
+            <div class="form-group">
+              <%= forward.hidden_field :source_id, :value => s.id %>
+              <div class="form-horizontal">
+              <%= forward.text_field :text, class: "form-control", placeholder: "Add a forward..." %>
+              <button class="btn btn-default pull-right">
+                <i class="glyphicon glyphicon-share"></i>
+              </button>
+              </div>
+            </div>
+        <% end %>
         <%= form_for :comment, url: comments_path do |c| %>
           <!--form accept-charset="utf-8" action="/comments" enctype="multipart/form-data" method="post" /-->
           <%= c.hidden_field :user_id, :value =>  @user.id %>
           <%= c.hidden_field :content_id, :value => s.id %>
           <%= c.text_field :text, class: "form-control", placeholder: "Add a comment..."  %>
+          <button class="btn btn-default pull-right">
+            <i class="glyphicon glyphicon-comment"></i>
+          </button>
         <% end %>
-        </div>
       </div>
     </div>
   </div>

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # contents route
   get 'contents/reply'
-  get 'contents/forward'
+  post 'contents/forward'
   resources :contents
 
   # user route
