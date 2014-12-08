@@ -38,26 +38,34 @@
         <% end %>
       </div>
       <div class="well">
-          <%= form_for :forward, url: contents_forward_path do |forward| %>
+        <div class="forward">
+          <%= form_for :forward, :html=> {:class => 'form-horizontal', :role => 'form'}, url: contents_forward_path do |forward| %>
+            <%= forward.hidden_field :source_id, :value => s.id %>
             <div class="form-group">
-              <%= forward.hidden_field :source_id, :value => s.id %>
-              <div class="form-horizontal">
-              <%= forward.text_field :text, class: "form-control", placeholder: "Add a forward..." %>
-              <button class="btn btn-default pull-right">
+              <div class="col-sm-10">
+                <%= forward.text_field :text, class: "form-control", placeholder: "Add a forward..." %>
+              </div>
+              <button class="btn btn-default col-sm-2">
                 <i class="glyphicon glyphicon-share"></i>
               </button>
-              </div>
-            </div>
+           </div>
         <% end %>
-        <%= form_for :comment, url: comments_path do |c| %>
+      </div>
+      <div class="comment">
+        <%= form_for :comment, :html => {:class => 'form-horizontal', :role => 'form'}, url: comments_path do |c| %>
           <!--form accept-charset="utf-8" action="/comments" enctype="multipart/form-data" method="post" /-->
           <%= c.hidden_field :user_id, :value =>  @user.id %>
           <%= c.hidden_field :content_id, :value => s.id %>
-          <%= c.text_field :text, class: "form-control", placeholder: "Add a comment..."  %>
-          <button class="btn btn-default pull-right">
-            <i class="glyphicon glyphicon-comment"></i>
-          </button>
+          <div class="form-group">
+            <div class="col-sm-10">
+              <%= c.text_field :text, class: "form-control", placeholder: "Add a comment..."  %>
+            </div>
+            <button class="btn btn-default col-sm-2">
+              <i class="glyphicon glyphicon-comment"></i>
+            </button>
+          </div>
         <% end %>
+      </div>
       </div>
     </div>
   </div>
