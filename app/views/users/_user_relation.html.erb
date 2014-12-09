@@ -6,6 +6,6 @@
   <% elsif @user_relation.relation == UserRelation::FIREND %>
     <%= ur.submit "firend", class: "btn btn-xs active" %>
   <% else %>
-    <%= ur.submit "followed", class: "btn btn-xs" %>
+    <%= ur.submit "followed", class: "btn btn-xs btn-success text-center" %>
   <% end %>
 <% end %>

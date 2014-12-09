@@ -8,13 +8,16 @@
         <% if @content_user.nil? %>
         <% else %>
           <div >
-            <div class="col-sm-2">
-              <%= image_tag @content_user.portrait_uri.url, size: "44x45", class: "image-circle" %>
-              <%= render "users/user_relation" %>
+            <div class="col-sm-3">
+              <%= image_tag @content_user.portrait_uri.url, size: "56x52", class: "image-circle" %>
+              <div class="text-center">
+                <%= render "users/user_relation" %>
+              </div>
             </div>
-            <div class="col-sm-10">
-              <div >
-              <%= @content_user.username %>
+            <div class="col-sm-9">
+              <div class="text-left">
+                <strong><%= @content_user.username %></strong>
+                <span class="caret"></span>
               </div>
               <div class="clearfix">
               </div>
@@ -33,11 +36,11 @@
         <% end %>
       </div>
       <div class="well">
-        <div class="forward">
+        <div class="row">
           <%= render :partial => "contents/content_forward", :locals => {:content => s} %>
           <!-- partial default :object, contents because mains render, locals need patrial  -->
         </div>
-        <div class="comment">
+        <div class="row">
           <%# @content = s #%>
           <%= render :partial => "comments/content_comment", :locals => {:user => @user, :content => s} %>
         </div>
