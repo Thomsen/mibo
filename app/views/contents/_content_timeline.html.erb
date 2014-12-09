@@ -39,33 +39,13 @@
       </div>
       <div class="well">
         <div class="forward">
-          <%= form_for :forward, :html=> {:class => 'form-horizontal', :role => 'form'}, url: contents_forward_path do |forward| %>
-            <%= forward.hidden_field :source_id, :value => s.id %>
-            <div class="form-group">
-              <div class="col-sm-10">
-                <%= forward.text_field :text, class: "form-control", placeholder: "Add a forward..." %>
-              </div>
-              <button class="btn btn-default col-sm-2">
-                <i class="glyphicon glyphicon-share"></i>
-              </button>
-           </div>
-        <% end %>
-      </div>
-      <div class="comment">
-        <%= form_for :comment, :html => {:class => 'form-horizontal', :role => 'form'}, url: comments_path do |c| %>
-          <!--form accept-charset="utf-8" action="/comments" enctype="multipart/form-data" method="post" /-->
-          <%= c.hidden_field :user_id, :value =>  @user.id %>
-          <%= c.hidden_field :content_id, :value => s.id %>
-          <div class="form-group">
-            <div class="col-sm-10">
-              <%= c.text_field :text, class: "form-control", placeholder: "Add a comment..."  %>
-            </div>
-            <button class="btn btn-default col-sm-2">
-              <i class="glyphicon glyphicon-comment"></i>
-            </button>
-          </div>
-        <% end %>
-      </div>
+          <%= render :partial => "contents/content_forward", :locals => {:content => s} %>
+          <!-- partial default :object, contents because mains render, locals need patrial  -->
+        </div>
+        <div class="comment">
+          <%# @content = s #%>
+          <%= render :partial => "comments/content_comment", :locals => {:user => @user, :content => s} %>
+        </div>
       </div>
     </div>
   </div>
