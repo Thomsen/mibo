@@ -1,0 +1,11 @@
+<%= form_for :user_relations, method: :post, url: users_follow_path do |ur| %>
+  <%= ur.hidden_field  :id, :value => @content_user.id %>
+  <% @user_relation = UserRelation.where(:user_id => @user.id, :firend_id => @content_user.id).first %>
+  <% if @user_relation.nil? || @user_relation.relation == UserRelation::NORMAL || @user_relation.relation == UserRelation::FOLLOWED %>
+    <%= ur.submit "follow", class: "btn btn-xs btn-primary" %>
+  <% elsif @user_relation.relation == UserRelation::FIREND %>
+    <%= ur.submit "firend", class: "btn btn-xs active" %>
+  <% else %>
+    <%= ur.submit "followed", class: "btn btn-xs" %>
+  <% end %>
+<% end %>
