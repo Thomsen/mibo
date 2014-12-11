@@ -1,3 +1,6 @@
 [submodule "vendor/assets/stylesheets/material-design-icons"]
 	path = vendor/assets/stylesheets/material-design-icons
 	url = https://github.com/google/material-design-icons.git
+[submodule "app/models"]
+	path = app/models
+	url = https://github.com/Thomsen/mibo-model.git
