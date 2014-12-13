@@ -1,8 +1,4 @@
 
-<%= simple_form_for(:session, html: {class: "form-horizontal"}, url: sessions_path) do |f| %>
-
-<%= f.input :username %>
-<%= f.input :password %>
-<%= f.button :submit, "Confirm" %>
-
-<% end %>
+<div class="row">
+  <%=render partial: 'users/horizontal_login_tb', layout: 'sf_label', locals: {title: 'User Login'} %>
+</div>  

@@ -1,0 +1,11 @@
+<%= simple_form_for :session, url: sessions_path, html: {class: 'form-horizontal'},
+  wrapper: :horizontal_form, wrapper_mappings: {
+  } do |f| %>
+
+<%= f.error_notification %>
+
+<%= f.input :username, placeholder: 'Username' %>
+<%= f.input :password, placeholder: 'Password' %>
+<%= f.button :submit, "Confirm" %>
+
+<% end %>
