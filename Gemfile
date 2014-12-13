@@ -45,6 +45,7 @@ group :development do
   gem 'guard'
   gem 'ruby_gntp'
   gem 'guard-bundler', require: false # Bundler class
+  gem 'rails-footnotes', '~> 4.0' # rails_footnotes:install
 end
 
 # bootstrap
