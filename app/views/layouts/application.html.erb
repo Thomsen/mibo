@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="tex/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <title>Mibo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body class="container">
+  <head>
+    <meta http-equiv="content-type" content="tex/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Mibo</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="">
+    <div class="wrapper">
+      <div class="header" role="banner">
+        <%= render 'layouts/navigation' %>
+      </div>
 
-  <div class="header">
-    <%= render 'layouts/navigation' %>
-  </div>
+      <div class="site clearfix" role="main">
+        <div class="jumbotron masthead">
+          <%=  render 'layouts/messages' %>
+        </div>
 
-  <div class="jumbotron masthead">
-    <%=  render 'layouts/messages' %>
-  </div>
+        <div class="container">
+          <!-- padding no nested container -->
+          <%= yield %>
+        </div>
+      </div>
 
-  <div class="">
-    <!-- padding no nested container -->
-    <%= yield %>
-  </div>
+    </div>
 
-</body>
+  </body>
 </html>
