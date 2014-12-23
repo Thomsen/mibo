@@ -63,3 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 # file attachment library
 gem 'paperclip', "~> 4.2"
+
+# react
+gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'
+gem 'showdown-rails'
