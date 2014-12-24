@@ -3,29 +3,29 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 valid = () ->
-  
+
   errorPlace = (error, element) ->
     error.appendTo(element.parent().next());
-  
+
   succ = (label) ->
     label.html("&nbsp;").addClass("checked");
 
   handler = (form) ->
     form.submit();
-    
-  signupform = () ->
+
+  userform = () ->
     rules:
       "user[username]":
         required: true,
-  
+
       "user[email]":
         required: true,
         email:    true,
 
       "user[form_password]":
         required: true,
-        
-      "user[password_confirm]": 
+
+      "user[password_confirm]":
         required: true,
 
     messages:
@@ -37,7 +37,7 @@ valid = () ->
     success: succ
 
     submitHandler: handler
-                    
-  $("#signupform").validate(signupform);
-  
+
+  $("#userform").validate(userform);
+
 $(document).ready(valid);
