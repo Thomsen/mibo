@@ -1,0 +1,8 @@
+<%= simple_form_for :content, url: contents_path do |f| %>
+
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  
+  <%= f.input :text, label: "Please enter content",  as: :text %>
+  <%= f.button :submit, class: "btn btn-success pull-right" %>
+
+<% end %>
