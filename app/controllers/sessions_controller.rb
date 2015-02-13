@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_to mains_index_path
     end
-    
+
   end
 
   def destroy
@@ -22,5 +22,5 @@ class SessionsController < ApplicationController
   def user_params
     params(:session).permit(:username, :form_password)
   end
-  
+
 end
