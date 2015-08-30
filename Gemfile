@@ -59,7 +59,7 @@ gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 
 gem 'jquery-validation-rails', '~> 1.12.0'
 
 # windows timezone
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # file attachment library
 gem 'paperclip', "~> 4.2"
