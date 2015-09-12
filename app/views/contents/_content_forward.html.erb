@@ -1,5 +1,7 @@
 <%= form_for :forward, :html=> {:class => 'form-horizontal', :role => 'form'}, url: contents_forward_path do |f| %>
   <%= f.hidden_field :source_id, :value => content.id %>
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  
   <!-- forward.hidden_field format chaos -->
   <div class="col-sm-12">
     <div class="input-group">

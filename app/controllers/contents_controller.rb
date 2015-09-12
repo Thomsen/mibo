@@ -27,6 +27,7 @@ class ContentsController < ApplicationController
   end
 
   def forward
+    print("forward_params: " + forward_params.to_json);
     @forward_content = Content.new(forward_params)
     if @forward_content.save
       redirect_to mains_index_path
@@ -47,7 +48,7 @@ class ContentsController < ApplicationController
   end
 
   def forward_params
-    params.require(:forward).permit(:text, :source_id)
+    params.require(:forward).permit(:text, :source_id, :user_id)
   end
 
 end
