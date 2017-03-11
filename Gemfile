@@ -1,17 +1,17 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '5.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [:development, :test]
 gem 'pg', group: :production
-gem 'mysql', group: :development
+gem 'mysql2', group: :development
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 3.1.6'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.2.1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby # javascript runtime (or install nodejs)
 
@@ -57,7 +57,7 @@ gem 'autoprefixer-rails'
 gem 'simple_form'
 
 # jquery validation
-gem 'jquery-validation-rails', '~> 1.12.0'
+gem 'jquery-validation-rails', '~> 1.16.0'
 
 # windows timezone
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

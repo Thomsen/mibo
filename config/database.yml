@@ -13,10 +13,10 @@ default: &default
 #   <<: *default
 #   database: db/development.sqlite3
 development:
-  adapter: mysql
+  adapter: mysql2
   host: localhost
   username: mibo
-  password: 
+  password: ####
   database: mibo
 
 # Warning: The database defined as "test" will be erased and
