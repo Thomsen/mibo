@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def create
-    @user = User.create(user_params)  # new to create
+    @user = User.create(params_new_user)  # new to create
     if @user.save
       redirect_to '/', notice: "User was successfully created." # redirect_to no transfer
     else
@@ -101,9 +101,12 @@ class UsersController < ApplicationController
   end
   
   private
-  def user_params
-    params.require(:user).permit(:username, :email, :form_password, :portrait_uri)
+  def params_new_user
+    params.require(:user).permit(:username, :email, :form_password, :password_confirm);
   end
+  # def user_params
+  #   params.require(:user).permit(:username, :email, :form_password, :portrait_uri)
+  # end
   def firend_params
     params.require(:user_relations).permit(:id)
   end

@@ -39,20 +39,20 @@ ActiveRecord::Schema.define(version: 20141130140332) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
     t.integer  "source_id"
   end
 
-  add_index "comments", ["content_id"], name: "index_comments_on_content_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["content_id"], name: "index_comments_on_content_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "contents", force: true do |t|
     t.text     "text"
     t.integer  "source_id"
     t.integer  "comments_count"
-    t.float    "longitude"
-    t.float    "latitude"
+    t.float    "longitude",        limit: 24
+    t.float    "latitude",         limit: 24
     t.integer  "user_id"
     t.integer  "attach_packet_id"
     t.datetime "created_at"
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20141130140332) do
     t.integer  "forwards_count"
   end
 
-  add_index "contents", ["attach_packet_id"], name: "index_contents_on_attach_packet_id"
-  add_index "contents", ["user_id"], name: "index_contents_on_user_id"
+  add_index "contents", ["attach_packet_id"], name: "index_contents_on_attach_packet_id", using: :btree
+  add_index "contents", ["user_id"], name: "index_contents_on_user_id", using: :btree
 
   create_table "user_relations", force: true do |t|
     t.integer  "user_id"
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 20141130140332) do
     t.datetime "updated_at"
   end
 
-  add_index "user_relations", ["firend_id"], name: "index_user_relations_on_firend_id"
-  add_index "user_relations", ["user_id"], name: "index_user_relations_on_user_id"
+  add_index "user_relations", ["firend_id"], name: "index_user_relations_on_firend_id", using: :btree
+  add_index "user_relations", ["user_id"], name: "index_user_relations_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username"
