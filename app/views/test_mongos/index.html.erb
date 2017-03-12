@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Test Mongos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_mongos.each do |test_mongo| %>
+      <tr>
+        <td><%= test_mongo.name %></td>
+        <td><%= link_to 'Show', test_mongo %></td>
+        <td><%= link_to 'Edit', edit_test_mongo_path(test_mongo) %></td>
+        <td><%= link_to 'Destroy', test_mongo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test Mongo', new_test_mongo_path %>

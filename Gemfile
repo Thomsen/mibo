@@ -6,6 +6,7 @@ gem 'rails', '5.0.2'
 gem 'sqlite3', group: [:development, :test]
 gem 'pg', group: :production
 gem 'mysql2', group: :development
+gem 'mongoid', '~> 6.1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.6'
 # Use Uglifier as compressor for JavaScript assets

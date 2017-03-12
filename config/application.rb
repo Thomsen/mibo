@@ -13,3 +13,7 @@ module Mibo
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+# config.generators do |g|
+#   g.orm :mongoid
+# end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :test_mongos
   resources :comments
 
   # sessions

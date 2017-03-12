@@ -44,6 +44,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bson (4.2.1)
     builder (3.2.3)
     climate_control (0.1.0)
     cocaine (0.5.8)
@@ -105,6 +106,11 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    mongo (2.4.1)
+      bson (>= 4.2.1, < 5.0.0)
+    mongoid (6.1.0)
+      activemodel (~> 5.0)
+      mongo (>= 2.4.1, < 3.0.0)
     multi_json (1.12.1)
     mysql2 (0.4.5)
     nenv (0.3.0)
@@ -216,6 +222,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-validation-rails (~> 1.16.0)
+  mongoid (~> 6.1.0)
   mysql2
   paperclip (~> 4.2)
   pg
