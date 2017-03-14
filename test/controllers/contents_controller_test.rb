@@ -1,27 +1,27 @@
 require 'test_helper'
 
-class ContentsControllerTest < ActionController::TestCase
+class ContentsControllerTest < ActionDispatch::IntegrationTest
   test "should get create" do
     assert_difference 'Content.count' do
-      post :create, content: {:text => "content controller test", :user => 2}
+      post contents_url(@content), params: {content: {:text => "content controller test", :user => 1000}}
     end
     assert_redirected_to mains_index_path(assigns(:post))
-    assert_equal 'content create success', flash[:notice]
+    assert_equal 'This is a flash message', flash[:notice]
   end
 
   test "should get reply" do
-    get :reply
+    get contents_reply_url
     assert_response :success
   end
 
-  test "should get forward" do
-    get :forward
-    assert_response :success
-  end
+  # test "should get forward" do
+  #   get :forward
+  #   assert_response :success
+  # end
 
-  test "should get destroy" do
-    delete :destroy
-    assert_response :success
-  end
+  # test "should get destroy" do
+  #   delete :destroy
+  #   assert_response :success
+  # end
 
 end

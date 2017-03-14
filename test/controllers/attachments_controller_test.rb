@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AttachmentsControllerTest < ActionController::TestCase
+class AttachmentsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

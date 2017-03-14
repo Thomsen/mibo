@@ -2,22 +2,22 @@
 
 one:
   text: MyText One
-  create_at: 2014-09-24 20:03:21
+  created_at: 2014-09-24 20:03:21
   source_id: 
-  reposts_count: 
+  forwards_count: 
   comments_count: 
   longitude: 
   latitude: 
   user_id: 
-  packet_id: 
+  attach_packet_id: 
 
 two:
   text: MyText Two
-  create_at: 2014-09-24 20:03:21
+  created_at: 2014-09-24 20:03:21
   source_id: 
-  reposts_count: 
+  forwards_count: 
   comments_count: 
   longitude: 
   latitude: 
   user_id: 
-  packet_id: 
+  attach_packet_id: 
